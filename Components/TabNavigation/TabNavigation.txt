@@ -1,0 +1,35 @@
+Possibly the most common style of navigation in mobile apps is tab-based navigation. 
+This can be tabs on the bottom of the screen or on the top below the header (or even instead of a header).
+
+# There are the Type's of tab navigation in native. 
+
+
+1. createBottomTabNavigator
+
+Material Top Tabs Navigator
+A material-design themed tab bar on the top of the screen that lets you switch between different routes by 
+tapping the tabs or swiping 
+horizontally. Transitions are animated by default. Screen components for each route are mounted immediately.
+This wraps react-native-tab-view. If you want to use the tab view without React Navigation integration, 
+use the library directly instead.
+
+2. createMaterialBottomTabNavigator
+
+The material-bottom-tabs navigator is moved to react-native-paper. Refer to react-native-paper's 
+documentation for API and usage. For any issues with the navigator, please open an issue in 
+react-native-paper's repository.
+A material-design themed tab bar on the bottom of the screen that lets you switch between
+different routes with animation. Routes are lazily initialized - their screen components are not
+mounted until they are first focused.
+This wraps the BottomNavigation component from react-native-paper. If you configure the Babel plugin, 
+it won't include the whole react-native-paper library in your bundle.
+
+
+3. createMaterialTopTabNavigator-(Material Top Tabs Navigator)
+A material-design themed tab bar on the top of the screen that lets you switch between different routes 
+by tapping the tabs or swiping horizontally. Transitions are animated by default. 
+Screen components for each route are mounted immediately.
+This wraps react-native-tab-view. If you want to use the tab view without React Navigation integration, 
+use the library directly instead.
+
+

@@ -1,20 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { Provider } from "react-redux";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import SignUp from "./Components/Authentication/SignUp";
+import SignIn from "./Components/Authentication/SignIn";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import reduxStore from "./Components/Redux/ReduxStore";
+const Stack = createNativeStackNavigator();
 
-export default function App() {
+// const Tab = createMaterialTopTabNavigator();
+
+// const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
+
+// function App() {
+//   return (
+//     //Example of tab navigation
+//     <NavigationContainer>
+//       <Tab.Navigator>
+//         <Tab.Screen name="SignUp" component={SignUp} />
+//         <Tab.Screen name="SignIn" component={SignIn} />
+//       </Tab.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+// function App() {
+//   return (
+//     //Example of tab navigation
+//     <NavigationContainer>
+//       <Tab.Navigator>
+//         <Tab.Screen name="SignUp" component={SignUp} />
+//         <Tab.Screen name="SignIn" component={SignIn} />
+//       </Tab.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={reduxStore}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+          {/* <Stack.Screen
+          name="ListOfDataFeatching"
+          component={ListOfDataFeatching}
+        /> */}
+          {/* <Stack.Screen name="MyFlatList" component={MyFlatList} /> */}
+          {/* <Stack.Screen name="MainFile" component={MainFile} /> */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

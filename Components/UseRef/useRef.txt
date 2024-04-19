@@ -1,0 +1,35 @@
+The decision of whether to use `useRef` in your React Native (or React) application depends on your specific 
+use case and requirements. `useRef` serves a distinct purpose and is useful in certain situations, but it should be
+ used judiciously.
+
+Here are some scenarios where using `useRef` is appropriate and beneficial:
+
+1. **Accessing DOM or Native Elements**: When you need to access and manipulate DOM elements or native components 
+directly (like a `<div>`, `<input>`, or a `TextInput` in React Native), `useRef` can be very handy. 
+It allows you to imperatively interact with these elements without causing re-renders of your components.
+
+2. **Storing Mutable Values**: If you need to store mutable values across renders without causing re-renders, 
+`useRef` can be used. The value of `ref.current` persists across renders and does not trigger a re-render when
+ it changes.
+
+3. **Focusing Inputs**: One common use case for `useRef` is focusing input fields as shown in your example.
+This allows you to programmatically set focus on an input element without relying on state changes.
+
+However, there are situations where using `useRef` may not be the best choice:
+
+1. **Managing Component State**: If you need to manage and display state that affects your component's rendering,
+ it's generally better to use `useState` or a state management library like Redux or Mobx. `useRef` is not intended
+  for managing component state.
+
+2. **Avoiding State Updates**: If you're using `useRef` solely to avoid triggering re-renders when a value changes, 
+you should reconsider whether that's the right approach. React's reactivity system is designed to efficiently handle 
+state updates, and avoiding state updates may lead to unexpected behavior.
+
+3. **Abusing Imperative Code**: While `useRef` allows you to write imperative code, it's important not to abuse
+ this capability. React's declarative approach is generally more maintainable and easier to reason about. Use `useRef`
+  sparingly for cases where imperative code is truly necessary.
+
+In summary, `useRef` is a valuable tool, especially for accessing and manipulating DOM/native elements and managing 
+
+certain kinds of mutable values. However, it should be used thoughtfully and in situations where it provides clear
+ benefits over React's declarative state management.
